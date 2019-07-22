@@ -1,0 +1,21 @@
+{
+    "name": "express-user-demo",
+    "version": "0.0.1",
+    "description": "Example JSON API for creating, reading and deleting users",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sHtev/express-user-demo"
+    },
+    "author": "Steve Gilroy <shtev@inspiraldreams.com>",
+    "license": "GPL-3.0-only",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "express-json-validator-middleware": "^2.0.0",
+        "lowdb": "^1.0.0"
+    }
+}
