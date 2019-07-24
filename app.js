@@ -1,12 +1,13 @@
 const _ = require('lodash');
 
 // Setup backing store
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const dbFile = process.env.DB_FILE || 'db.json';
+const adapter = new FileSync(dbFile);
 const db = low(adapter)
 db.defaults({ users: [] })
-  .write()
+  .write();
 
 // Setup express
 const express = require('express');
@@ -124,6 +125,10 @@ app.get('/users/:email', (req, res) => {
 
 app.get('/user/:username', (req, res) => {
     res.json(db.get('users').find(['username', req.params.username]).pick(properties).value());
+});
+
+app.get('/', (req, res) => {
+    res.send('Hello world');
 });
 
 // handle validation errors
